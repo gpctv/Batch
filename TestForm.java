@@ -1,6 +1,7 @@
 package com.stan.test;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Timer;
@@ -52,9 +53,13 @@ public class TestForm extends TimerTask{
 	
 	private static Date setTime(int hh,int mm,int ss){
 		Calendar date=Calendar.getInstance();
-		 date.set(Calendar.HOUR,hh);
+		SimpleDateFormat sdf = new SimpleDateFormat("E yyyy/MM/dd");
+		 date.set(date.get(Calendar.YEAR), date.get(Calendar.MONTH)
+				 , date.get(Calendar.DATE), hh, mm, ss);
+		 /**date.set(Calendar.HOUR,hh);
 		 date.set(Calendar.MINUTE,mm);
-		 date.set(Calendar.SECOND,ss);
+		 date.set(Calendar.SECOND,ss);**/
+		 log(sdf.format(date.getTime()));
 		return date.getTime();
 	}
 	
