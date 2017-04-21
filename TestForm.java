@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -25,7 +26,7 @@ public class TestForm extends TimerTask{
 		ss=Integer.parseInt(d[2]);  
 		message=inputMessage;
 		log("setTime:"+hh+":"+mm+":"+ss+" message:"+message);
-		log(System.getProperty("user.dir"));
+		log("path:"+System.getProperty("user.dir"));
 		System.out.println("setTime:"+hh+":"+mm+":"+ss+" message:"+message);
 		Timer timer=new Timer();
 		TestForm task=new TestForm();
@@ -59,14 +60,19 @@ public class TestForm extends TimerTask{
 	
 	private static void log(String loge){
 		String currentPath=System.getProperty("user.dir");
-		 Logger log=Logger.getLogger("log");
+		 Logger log=Logger.getLogger("TestForm");
 		 try {
-			FileHandler file=new FileHandler(currentPath+"/log.xml");
+			FileHandler file=new FileHandler(currentPath+"/log.txt");
+			SimpleFormatter sformatter = new SimpleFormatter();
+			file.setEncoding("UTF-8");
+			file.setFormatter(sformatter);
 			log.addHandler(file);
+			log.info(loge);
 		} catch (SecurityException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 log.info(loge);
+		 
+		 
 	}
 }
