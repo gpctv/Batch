@@ -9,3 +9,5 @@ batch or tool
 
 ### TestForm:set schedule and pop up alert <br/>
     the program will create log.txt
+### TestMD5:set MD5 encrytor code<br/>
+    encrytor password to MD5
