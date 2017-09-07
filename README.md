@@ -11,3 +11,5 @@ batch or tool
     the program will create log.txt
 ### TestMD5:set MD5 encrytor code<br/>
     encrytor password to MD5
+    
+### TestScheduledExecutor:set routine time process<br/>
