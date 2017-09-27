@@ -3,10 +3,8 @@ package com.stan.test;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import java.util.HashMap;
 import java.util.regex.Pattern;
 
-import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -26,8 +24,7 @@ public class TestGold {
 	}
 
 	 public static void getDate(String url) throws IOException{
-		 HashMap<String,Double> map=new HashMap<String,Double>();
-		 doc=Jsoup.connect(url).get();
+		  doc=Jsoup.connect(url).get();
 		 System.out.println( doc.title());
 		 Elements table=doc.getElementsByTag("table");
 		 Elements tbody=table.select("tbody");
@@ -42,11 +39,7 @@ public class TestGold {
 			} 
 	 }
 	
-	//轉換JSON格式
-	public static void pareJSON(HashMap<String,Double> o){
-		JSONObject j=new JSONObject(o);
-		 
-	}
+	
 	
 	public static boolean isNum(String num){
 		 Pattern pattern=Pattern.compile("^([-+]?\\d+)(\\.\\d+)?$");
