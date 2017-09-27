@@ -13,3 +13,5 @@ batch or tool
     encrytor password to MD5
     
 ### TestScheduledExecutor:set routine time process<br/>
+
+### TestGold:get web page. this is gold rate.<br/> 
