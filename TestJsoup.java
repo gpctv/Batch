@@ -1,5 +1,5 @@
 package com.stan.test;
- 
+
 import java.util.HashMap; 
 import java.util.regex.Pattern;
 
@@ -24,7 +24,7 @@ public class TestJsoup {
 			 Elements tbody=table.select("tbody");
 			 Elements div=tbody.select("div[class=hidden-phone print_show]");
 			 Elements td= table.select("td[data-table=本行現金賣出]");
-			Elements dollar=td.select("td[class=rate-content-cash text-right print_hide]");
+			 Elements dollar=td.select("td[class=rate-content-cash text-right print_hide]");
 			for(int i=0;i<div.size();i++){
 				double d=0;
 				if(isNum(dollar.get(i).text())){
@@ -52,5 +52,6 @@ public static boolean isNum(String num){
 public static void pareJSON(HashMap<String,Double> o){
 	JSONObject j=new JSONObject(o);
 	System.out.println(j.get("歐元 (EUR)"));
+	System.out.println(o.get("歐元 (EUR)"));
 }
 }
