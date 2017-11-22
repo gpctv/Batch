@@ -82,9 +82,11 @@ public class TestMoveFile {
    			 fileName= fileName.add(num)  ;
     		}else{
     			for(File s: file.listFiles()){
+				if(file.isFile()){
     			System.out.println(s.getAbsolutePath());
     			 System.out.println("Move "+moveFile(s,dec+"\\"+fileName.toString()+".jpg"));
     			 fileName= fileName.add(num)  ;
+				}
     		}
     		}
     	}
