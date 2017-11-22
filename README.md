@@ -15,3 +15,7 @@ batch or tool
 ### TestScheduledExecutor:set routine time process<br/>
 
 ### TestGold:get web page. this is gold rate.<br/> 
+
+### TestMoveFile:copy all files of parent folder to destination<br/>
+    first parameter is parent folder second parameter is to destination.
+### start.bat : start jar file interval seconds<br/>
