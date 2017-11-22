@@ -76,12 +76,17 @@ public class TestMoveFile {
     	BigDecimal fileName=readMaxNum();
     	BigDecimal num=new BigDecimal("1");
     	for(File file:files){
-    		for(File s: file.listFiles()){
+		//如果是檔案就直接搬
+    		if(file.isFile()){
+    			System.out.println("Move "+moveFile(file,dec+"\\"+fileName.toString()+".jpg"));
+   			 fileName= fileName.add(num)  ;
+    		}else{
+    			for(File s: file.listFiles()){
     			System.out.println(s.getAbsolutePath());
     			 System.out.println("Move "+moveFile(s,dec+"\\"+fileName.toString()+".jpg"));
     			 fileName= fileName.add(num)  ;
     		}
-    		
+    		}
     	}
     	writeNum(fileName);
     }
