@@ -83,7 +83,7 @@ public class TestMoveFile {
    			 fileName= fileName.add(num)  ;
     		}else{
     			for(File s: file.listFiles()){
-				if(file.isFile()){
+				if(file.isFile()){//子目錄底下如果是檔案才能搬
     			System.out.println(s.getAbsolutePath());
     			 System.out.println("Move "+moveFile(s,dec+"\\"+fileName.toString()+".jpg"));
     			 fileName= fileName.add(num)  ;
