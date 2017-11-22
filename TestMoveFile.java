@@ -78,6 +78,7 @@ public class TestMoveFile {
     	for(File file:files){
 		//如果是檔案就直接搬
     		if(file.isFile()){
+			System.out.println(file.getAbsolutePath());
     			System.out.println("Move "+moveFile(file,dec+"\\"+fileName.toString()+".jpg"));
    			 fileName= fileName.add(num)  ;
     		}else{
