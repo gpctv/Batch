@@ -9,12 +9,8 @@ import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import javax.swing.ProgressMonitor;
-import javax.swing.ProgressMonitorInputStream;
-
-import org.apache.commons.io.FileUtils;
-
 public class TestThread implements Runnable{
+
 	private int threadName;
 	private int total=100;
 	private String sourcePath;
@@ -50,6 +46,8 @@ public class TestThread implements Runnable{
 			
 			File source =new File(sourcePath);
 			File target=new File(descPath);
+			InputStream in=null;
+			OutputStream out=null;
 			
 			 
 			 if(!target.exists()){
@@ -57,8 +55,8 @@ public class TestThread implements Runnable{
 				System.out.println("threadName:"+threadName +"create:"+result );
 			} 
 			try {
-				InputStream in=new FileInputStream(source);
-				OutputStream out=new FileOutputStream(target.getAbsolutePath()+"/"+desFileName);
+				  in=new FileInputStream(source);
+				  out=new FileOutputStream(target.getAbsolutePath()+"/"+desFileName);
 				byte[] bf=new byte[1024];
 				BigDecimal total=BigDecimal.valueOf(source.length());
 				int len;
@@ -70,16 +68,31 @@ public class TestThread implements Runnable{
 					System.out.println("progress"+threadName+":"+progress.toString());
 					out.write(bf, 0, len);
 				}
-				in.close();
-				out.close();
+				close(in,out);
 				System.out.println("threadName "+threadName+"finish");
 				 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}finally{
+				close(in,out);
 			}
 			
 		}
 	//}
-
+	
+	private void close(InputStream in,OutputStream out){
+		try{
+		if(in!=null){
+			in.close();
+		
+		}
+		if(out!=null){
+			out.close();
+		}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
 }
