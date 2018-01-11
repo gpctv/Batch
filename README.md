@@ -19,3 +19,8 @@ batch or tool
 ### TestMoveFile:copy all files of parent folder to destination<br/>
     first parameter is parent folder second parameter is to destination.
 ### start.bat : start jar file interval seconds<br/>
+
+### TestKeyPress:record keypress
+    the program will auto create log2.txt
+    you can collocate bat vbs and this jar of exporting java
+    example:TestKeyPress.vbs,TestKeyPress.bat
